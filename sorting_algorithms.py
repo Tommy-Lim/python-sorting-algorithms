@@ -123,14 +123,19 @@ def bucket_sort(a):
     for i in range(0,len(arr)):
         if arr[i] > 0:
             a += [i]*arr[i]
-    print(a)
+    # print(a)
 
     return a
 
 # https://en.wikipedia.org/wiki/Insertion_sort
 def insertion_sort(a):
-  # TODO: implement insertion sort
-  return a
+    # for i in range(1, len(a)):
+    #     j = i-1
+    #     while a[i]<a[j]:
+    #         j -= 1
+    #     for j in range(0, i-1):
+    #         if a[i] < a[j]:
+    return a
 
 """
 https://en.wikipedia.org/wiki/Merge_sort
