@@ -57,8 +57,17 @@ repeat
 
 """
 def bubble_sort(a, verbose=False):
-  # TODO: implement bubble_sort
-  return a
+    sorting = True
+    while sorting == True:
+        swaps = 0
+        for i in range(1,len(a)):
+            if a[i] < a[i-1]:
+                swaps =+ 1
+                a[i], a[i-1] = a[i-1], a[i]
+            if i == len(a)-1 and swaps == 0:
+                sorting = False
+    print(a)
+    return a
 
 """
 https://en.wikipedia.org/wiki/Bucket_sort
@@ -74,7 +83,7 @@ there are no negative numbers in the array.
 Psuedo-code algorithm:
 - Assume the minimum value in the array is zero.
 - Make one pass through the array to find it's max value.
-- Create an array of size zero - MAX 
+- Create an array of size zero - MAX
 - Make a second pass through the array to tally how often each
   number occurs. Save each tally in the array from 0-MAX that
   was created. The value at each index of the array represents
@@ -94,7 +103,7 @@ There were 6 zeroes, 2 ones, zero twos, 1 three, zero fours and 3 fives.
 
 Now, overwrite the original array by stepping through the final tally and
 adding the index as a value as many times as it was tallied:
-   
+
   [0, 0, 0, 0, 0, 0,  # add six zeroes
    1, 1               # add two ones
    3,                 # add one three
@@ -163,5 +172,3 @@ merge               \                           /
 def merge_sort(a):
   # TODO: implement merge sort
   return a
-
-
