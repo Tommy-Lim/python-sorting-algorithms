@@ -66,7 +66,7 @@ def bubble_sort(a, verbose=False):
                 a[i], a[i-1] = a[i-1], a[i]
             if i == len(a)-1 and swaps == 0:
                 sorting = False
-    print(a)
+    # print(a)
     return a
 
 """
@@ -112,8 +112,20 @@ adding the index as a value as many times as it was tallied:
 And there you have it. You've generated a sorted array.
 """
 def bucket_sort(a):
-  # TODO: implement bucket sort
-  return a
+    max = a[0]
+    for num in a:
+        if num > max:
+            max = num
+    arr = [0] * (max + 1)
+    for num in a:
+        arr[num] += 1
+    a = []
+    for i in range(0,len(arr)):
+        if arr[i] > 0:
+            a += [i]*arr[i]
+    print(a)
+
+    return a
 
 # https://en.wikipedia.org/wiki/Insertion_sort
 def insertion_sort(a):
