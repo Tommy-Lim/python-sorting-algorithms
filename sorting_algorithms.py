@@ -112,11 +112,11 @@ adding the index as a value as many times as it was tallied:
 And there you have it. You've generated a sorted array.
 """
 def bucket_sort(a):
-    max = a[0]
+    maxx = a[0]
     for num in a:
-        if num > max:
-            max = num
-    arr = [0] * (max + 1)
+        if num > maxx:
+            maxx = num
+    arr = [0] * (maxx + 1)
     for num in a:
         arr[num] += 1
     a = []
@@ -129,12 +129,16 @@ def bucket_sort(a):
 
 # https://en.wikipedia.org/wiki/Insertion_sort
 def insertion_sort(a):
-    # for i in range(1, len(a)):
-    #     j = i-1
-    #     while a[i]<a[j]:
-    #         j -= 1
-    #     for j in range(0, i-1):
-    #         if a[i] < a[j]:
+    for i in range(len(a)):
+        min_value = a[i]
+        index = i
+        for j in range(i+1, len(a)):
+            if a[j] < min_value:
+                index = j
+                min_value = a[index]
+        a[i], a[index] = a[index], a[i]
+
+    print(a)
     return a
 
 """
