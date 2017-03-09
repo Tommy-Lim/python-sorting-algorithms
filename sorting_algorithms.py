@@ -135,10 +135,10 @@ def insertion_sort(a):
         for j in range(i+1, len(a)):
             if a[j] < min_value:
                 index = j
-                min_value = a[index]
-        a[i], a[index] = a[index], a[i]
+                min_value = a[j]
+        a[i], a[index] = min_value, a[i]
 
-    print(a)
+    # print(a)
     return a
 
 """
@@ -191,5 +191,34 @@ merge               \                           /
                      [1, 2, 3, 4, 5, 6, 7, 8, 9]
 """
 def merge_sort(a):
-  # TODO: implement merge sort
-  return a
+    if len(a) < 2:
+        return a
+    else:
+        middle = len(a)//2
+        left = a[:middle]
+        right = a[middle:]
+        result = merge(merge_sort(left), merge_sort(right))
+        # print("result", result)
+        return result
+
+
+def merge(arr1, arr2):
+    if arr1 is None:
+      return arr2
+    elif arr2 is None:
+      return arr1
+
+    i1 = 0
+    i2 = 0
+    result = []
+
+    while i1 < len(arr1) and i2 < len(arr2):
+        if arr1[i1] < arr2[i2]:
+            result.append(arr1[i1])
+            i1 +=1
+        else:
+            result.append(arr2[i2])
+            i2 +=1
+    result += arr1[i1:]
+    result += arr2[i2:]
+    return result
